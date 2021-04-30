@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1619732263 "/home/doug/MEGA/estudos/Maryland/Mathematical-methods/homeworks/tex/hw10.tex" "/home/doug/MEGA/estudos/Maryland/Mathematical-methods/homeworks/tex/hw10.pdf" "hw10" 1619732277
+["pdflatex"] 1619754155 "/home/doug/MEGA/estudos/Maryland/Mathematical-methods/homeworks/tex/hw10.tex" "/home/doug/MEGA/estudos/Maryland/Mathematical-methods/homeworks/tex/hw10.pdf" "hw10" 1619754156
   "/etc/texmf/web2c/texmf.cnf" 1619579298 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/doug/MEGA/estudos/Maryland/Mathematical-methods/homeworks/tex/hw10.aux" 1619732264 4862 e3ce7c94f98dd5260e0276620f009bc2 ""
-  "/home/doug/MEGA/estudos/Maryland/Mathematical-methods/homeworks/tex/hw10.tex" 1619732276 19780 e3311044ed8cbf9d9b10a1044694a8ef ""
+  "/home/doug/MEGA/estudos/Maryland/Mathematical-methods/homeworks/tex/hw10.aux" 1619754156 4862 dd523d634a7327a9faf1f38c4e394eac ""
+  "/home/doug/MEGA/estudos/Maryland/Mathematical-methods/homeworks/tex/hw10.tex" 1619754155 20744 8c6f9ff00be2185bc28d21751f489147 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -309,13 +309,13 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1619580492 4770781 1ed1abab22da9c3e2cc82e4db562318b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1619580503 8256652 cba5860f544de20fd27b95d39024858a ""
-  "hw10.aux" 1619732264 4862 e3ce7c94f98dd5260e0276620f009bc2 "pdflatex"
-  "hw10.out" 1619732264 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "hw10.tex" 1619732276 19780 e3311044ed8cbf9d9b10a1044694a8ef ""
+  "hw10.aux" 1619754156 4862 dd523d634a7327a9faf1f38c4e394eac "pdflatex"
+  "hw10.out" 1619754155 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "hw10.tex" 1619754155 20744 8c6f9ff00be2185bc28d21751f489147 ""
   (generated)
-  "hw10.log"
-  "hw10.out"
   "/home/doug/MEGA/estudos/Maryland/Mathematical-methods/homeworks/tex/hw10.log"
   "hw10.aux"
   "/home/doug/MEGA/estudos/Maryland/Mathematical-methods/homeworks/tex/hw10.pdf"
+  "hw10.log"
+  "hw10.out"
   "hw10.pdf"

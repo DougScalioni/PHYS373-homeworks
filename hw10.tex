@@ -273,7 +273,7 @@
 		$$\laplace{g}(k) = \laplace{gu_{1990,2030}} = g \frac{e^{-1990k} - e^{-2030k}}{k}$$
 		$$\laplace{d}(k) = \laplace{e^{-t \ln2/h}} = \oneover{k+\ln2/h}$$
 		$$ = \laplace{g} \laplace{d}(k) = g \frac{e^{-1990k} - e^{-2030k}}{k} \oneover{k+\ln2/h} = g \frac{e^{-1990k} - e^{-2030k}}{k^2+k\ln2/h}$$
-		Using partial fractions, 
+		Using partial fractions,
 		$$  \frac{1}{k (k + \ln2/h)} = \frac{A}{k} + \frac{B}{k + \ln2/h} $$
 		$$ 1 = (k + \ln2/h)A + kB = (\ln2/h)A + (A+B)k $$
 		$$ \Rightarrow A + B = 0 \textbf{, } A\ln2/h = 1$$
@@ -314,7 +314,20 @@
 		\begin{equation}
 			b(t) = d*g = \frac{M}{r} \left[u(t-A)\left(e^{r(t-A)}-1\right) - u(t-R)\left(e^{r(t-R)} - 1\right)\right]
 		\end{equation}
-		\begin{solution}\end{solution}
+		\begin{solution}
+			The deposits $d$ are made from $t=A$ until $t=R$ - in other words, from age $A$ until retirement - at a rate of $M$ per year. So $d(t) = Mu_{A, R}$.
+			As said, the growth $g(t) = e^{rt}$. Let's now compute $d \ast g$:
+			$$ = \int_0^t d(\tau) g(t-\tau) \id{\tau}= \int_0^t Mu_{A, R} e^{r(t-\tau)} \id{\tau} $$
+			$$ = Me^{rt} \int_0^t (u(\tau-A) -u(\tau-R)) e^{-r \tau} \id{\tau} $$
+			$$ = Me^{rt} \left[ \int_0^t u(\tau-A)e^{-r \tau} \id{\tau} - \int_0^t u(\tau-R)e^{-r \tau}  \id{\tau} \right]$$
+			By a similar argument to the previous question,
+			$$ = Me^{rt} \left[ u(t-A) \int_A^t e^{-r \tau} \id{\tau} - u(t-R) \int_R^t e^{-r \tau}  \id{\tau} \right] $$
+			$$ = Me^{rt} \left[ u(t-A) \frac{e^{-rt} - e^{-rA}}{-r}- u(t-R) \frac{e^{-rt} - e^{-rR} }{-r} \right] $$
+			$$ = \frac{M}{-r} \left[ u(t-A) (1 - e^{-r(A-t)})- u(t-R) (1 - e^{-r(R-t)}) \right] $$
+			$$ = \frac{M}{r} \left[ u(t-A) (e^{r(t-A)} - 1)- u(t-R) (e^{r(t-R)} - 1) \right]$$
+			Q.E.D.
+
+		\end{solution}
 
 		\part Suppose you retire at $R=65$.  Plot how much money you will have in your 401(k) at $t=R=65$ as a function of $A$ from 25 to 65, the year you start making contributions.
 
