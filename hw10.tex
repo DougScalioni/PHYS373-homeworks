@@ -331,17 +331,26 @@
 
 		\part Suppose you retire at $R=65$.  Plot how much money you will have in your 401(k) at $t=R=65$ as a function of $A$ from 25 to 65, the year you start making contributions.
 
-		\begin{solution}\end{solution}
+		\begin{solution}
+
+			\includegraphics[scale=0.45]{hw10-q4-b.png}
+		\end{solution}
 
 		\part Obviously, the total quantity of money you have deposited at time $t$ is $M(t-A)$.
 		Plot $b(R) / M(R-A)$ as a function of $A$ the age you start saving, assuming you retire at $R=65$.
 		This ratio is your `bang-for-the-buck'.
 
-		\begin{solution}\end{solution}
+		\begin{solution}
+
+			\includegraphics[scale=0.45]{hw10-q4-c.png}
+		\end{solution}
 
 		\part According to this naive model, how much more money will you save if you start saving at $A=25$ than if you start at $A=30$, assuming $R=65$?
 
-		\begin{solution}\end{solution}
+		\begin{solution}
+			Using the algorithm (annex), $$b(t=65,A=25) - b(t=65,A=30) = \textbf{US\$ }3,469,396.04.$$
+
+		\end{solution}
 
 	\end{parts}
 	Reality check: the average American---especially the average 25-year-old---doesn't typically have a job where they can easily deposit the maximum $M$ into their 401(k)---it'd be too large a percentage of their take-home pay.
@@ -353,7 +362,20 @@
 	\section*{Solving ODEs with Laplace Transforms (using convolutions!)}
 	\question Boas 8.12.5
 
-	\begin{solution}\end{solution}
+	\begin{solution}
+		``Obtain (12.6) by using the convolution integral to solve (12.1)."
+
+		(12.1) is given by $y'' + \omega^2 y = f(t)$, $y_0 = y'_0 = 0$. Taking the laplace transform,
+
+		$$ \stackrel{\mathcal{L}}{\rightarrow} k^2 Y - k y_0 - y'_0 + \omega^2 Y = F(k) $$
+		$$ (k^2 + \omega^2) Y = F(k) $$
+		$$ Y = \frac{F(k)}{(k^2 + \omega^2)} = F(k) \omega^{-1}  \frac{\omega}{(k^2 + \omega^2)}$$
+		$$ \stackrel{\mathcal{L}^{-1}}{\rightarrow} y = f(t) \ast \omega^{-1} \sin \omega t = \frac{ f(t) \ast \sin \omega t }{\omega}$$
+		$$ = \int_0^t \frac{1}{\omega} \sin \omega (t - \tau) f(\tau) \id{\tau}$$
+		which is equation (12.6).
+
+	\end{solution}
+
 	\question Consider a system goverened by the ODE
 	\begin{equation}
 		\ddot{y} + 2b \dot{y} + \omega_0^2 y = f(t)
@@ -368,7 +390,14 @@
 			\frac{F}{s^2+2bs+\omega_0^2} + \frac{s y_0}{s^2+2bs+\omega_0^2} + \frac{2 b y_0 + \dot{y}_0}{s^2+2bs+\omega_0^2}
 		\end{equation}
 		where $Y=\laplace{y}$ and $F=\laplace{f}$.
-		\begin{solution}\end{solution}
+		
+		\begin{solution}
+			$$\stackrel{\mathcal{L}}{\rightarrow} s^2 Y - sy_0 - \dot{y_0} + 2b(sY - y_0) + \omega^2 Y= F(s)$$
+			$$ (s^2 + 2bs + \omega^2) Y = F(s) + sy_0 + \dot{y_0} + 2by_0 $$
+			$$ Y = \frac{F}{s^2 + 2bs + \omega^2} + \frac{sy_0}{s^2 + 2bs + \omega^2} + \frac{2by_0 + \dot{y_0}}{s^2 + 2bs + \omega^2}$$
+
+		\end{solution}
+
 		Let's stop and take this this form in for a second.  The first piece is the same no matter what the initial conditions are---it therefore corresponds to a particular solution.  The other two pieces have constants in them fixed by the initial conditions---they are part of the complementary function (remember?  the solution to the associated homogeneous equation?)
 
 		\part Let's first consider $F=0$ with the above initial conditions so that we get the appropriate complementary function.  Assume were are not in the critically damped case.  Show that
@@ -379,7 +408,26 @@
 		\end{align}
 		where $r_\pm$ are the charactersitic roots of the equation (remember?!).
 		Notice that this solution has the property that $y(0) = y_0$ and $\dot{y}(0) = \dot{y}_0$ it satisfied the ODE for all $t>0$; where we expect Laplace transform methods to work.
-		\begin{solution}\end{solution}
+		\begin{solution}
+			Suppose that $F = 0$ and $ b^2 \neq \omega^2$. Also, $s^2 + 2bs + \omega^2 = (s-r_-)(s-r_+)$ where $r = -b \pm \sqrt{b^2 - \omega_0^2}$.
+			$$ Y_c = \frac{sy_0}{(s-r_-)(s-r_+)} + \frac{2by_0 + \dot{y_0}}{(s-r_-)(s-r_+)}$$
+			$$ Y_c = y_0 \frac{s}{(s-r_-)(s-r_+)} + (2by_0 + \dot{y_0})\frac{1}{(s-r_-)(s-r_+)}$$
+			Using L7 and L8 from Boas' Laplace table,
+			$$ y_c = y_0 \left[ \frac{(-r_-)e^{r_- t} - (-r_+)e^{r_+ t}}{(-r_-) - (-r_+)} \right] + (2by_0 + \dot{y_0}) \left[ \frac{e^{r_- t} - e^{r_+ t}}{(-r_+) - (-r_-)} \right]$$
+			$$ y_c = y_0 \left[ \frac{r_- e^{r_- t} - r_+ e^{r_+ t}}{r_- - r_+} \right] + (2by_0 + \dot{y_0}) \left[ \frac{e^{r_- t} - e^{r_+ t}}{r_- - r_+} \right]$$
+			$$ y_c = \oneover{r_- - r_+} \left[ e^{r_- t} \left( y_0 r_- + 2by_0 + \dot{y_0} \right) - e^{r_+ t} \left(y_0 r_+ + 2by_0 + \dot{y_0}  \right)   \right]$$
+			$$ y_c = \oneover{r_- - r_+} \left[ e^{r_- t} \left( y_0 (r_- + 2b) + \dot{y_0} \right) - e^{r_+ t} \left(y_0 (r_+ + 2b) + \dot{y_0})  \right)   \right]$$
+
+			There's a subtlety here that $r_+ + 2b = - r_-$ and $r_- + 2b = - r_+$. 
+			
+			Also, $r_- - r_+ = -2\sqrt{b^2 - \omega_0^2}$. And thus,
+
+			$$ y_c = \frac{-1}{2\sqrt{b^2 - \omega_0^2}} \left[ e^{r_- t} \left( y_0 (- r_+ ) + \dot{y_0} \right) - e^{r_+ t} \left(y_0 (-r_-) + \dot{y_0})  \right)   \right]$$
+			$$ y_c = \frac{1}{2\sqrt{b^2 - \omega_0^2}} \left[ e^{r_+ t} \left(\dot{y_0} - y_0 r_-  \right) - e^{r_- t} \left(\dot{y_0} -y_0 r_+  \right)  \right] u(t) $$
+
+			The $u(t)$ was added as a convention; since the Laplace erases the function for $t<0$, we can't have any information on that domain after we take the inverse laplace.
+
+		\end{solution}
 
 		\part Show that
 		\begin{equation}
@@ -387,7 +435,18 @@
 		\end{equation}
 		again assuming we're not in the critical case.  (You can probably re-use some of the partial-fractions from the previous part, if that's how you did it.)
 
-		\begin{solution}\end{solution}
+		\begin{solution}
+			
+			$$\oneover{s^2+2bs+\omega_0^2} = \frac{1}{(s-r_-)(s-r_+)} = \frac{A}{s-r_-} + \frac{B}{s-r_+}$$
+			$$ 1 = A(s-r_+) + B(s-r_-) = s(A+B) - A r_+ - B r_- $$
+			$$ \Rightarrow B = -A \Rightarrow - A r_+ - B r_- = A (r_- - r_+) = 1$$
+			$$ \Rightarrow A = \frac{-1}{2 \sqrt{b^2 - \omega_0^2}}\textbf{,  } B = \frac{1}{2 \sqrt{b^2 - \omega_0^2}}$$
+			Thus,
+			$$\oneover{s^2+2bs+\omega_0^2} = \frac{1}{2 \sqrt{b^2 - \omega_0^2}} \left[ \frac{1}{s-r_+} - \frac{1}{s-r_-} \right] $$
+			Taking the inverse laplace (L2 from the table),
+			$$W(t) = \oneover{2\sqrt{b^2-\omega_0^2}} \left[ e^{r_+ t} - e^{r_- t}\right] u(t)$$
+
+		\end{solution}
 
 		\part Now you know the general solution to the ODE for any $f(t)$---just convolve $W*f$ to find the particular solution and add the complementary solution.
 		Try it for a delta-function impulse at time $t_i>0$ $f = f_i \delta(t-t_i)$.
@@ -400,14 +459,20 @@
 		Notice that the particular solution only `kicks in' once the system receives the impulse---that makes physical sense!
 		Also---what is the behavior?
 		It's exactly what you expect---decaying exponentially (there are decaying oscillations if we're in the underdamped case).
-		\begin{solution}\end{solution}
+		
+		\begin{solution}
+			So $f = f_i \delta(t-t_i)$. Let's compute the above convolution:
+			$$  y_p = W\ast f = \int_0^t \oneover{2\sqrt{b^2-\omega_0^2}} \left[ e^{r_+ \tau} - e^{r_- \tau}\right] u(\tau) f_i \delta(\tau - (t - t_i)) \id{\tau}  $$
+			$$ = \frac{f_i}{2\sqrt{b^2-\omega_0^2}} \left[ e^{r_+ (t-t_i)} - e^{r_- (t-t_i)}\right] u(t-t_i)$$
+			$$ = \frac{e^{r_+-(t-t_i)} - e^{r_-(t-t_i)}}{r_+-r_-} f_i u(t-t_i)$$
+		\end{solution}
 
 	\end{parts}
 	In class we mentioned that the $\delta$ is the identity element for the convolution operation, $\delta*g = g*\delta = g$ for any $g$.  We also mentioned that convolution is associative, $(a*b)*c = a*(b*c)$, because the Laplace transform of both sides is $ABC$.
 	Suppose we have some other signal, not $f(t) = \delta(t)$ (setting $t_i=0$ and $f_i=1$) but $g(t)$.  The particular solution given $f$ is $f*W = \delta*W = y_p$.  Since $g= g*\delta$ the particular solution for $g$ as input is $(g*\delta)*W = g*(\delta*W) = g*y_p$ where $y_p$ is what we just found (with $t_i=0$ and $f_i=1$ plugged in---which is $W$ itself!).
 	The whole thing hangs together!
 	\section*{As Always}
-	\question How long did this problem set take you?
+	\question How long did this problem set take you? About 7 hours.
 
 	\section*{Optional Practice}
 
