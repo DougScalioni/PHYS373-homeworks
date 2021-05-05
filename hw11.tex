@@ -1,0 +1,376 @@
+\documentclass[answers]{exam}\newcommand{\repositoryInformationSetup}{     \usepackage[dvipsnames]{xcolor}     \usepackage[ angle=90, color=black, opacity=1, scale=2, ]{background}      \SetBgPosition{current page.west}      \SetBgVshift{-4.5mm}      \backgroundsetup{contents={{\color{green}\texttt{-{}-} differs from commit \texttt{aac605f} in 0 files}}} } \newcommand{\commit}{{{\color{green}aac605f}}}\usepackage{amsmath}
+\usepackage{xspace}
+\usepackage{bbm}
+\usepackage{ifthen}
+
+
+
+\newcommand{\repoURL}{https://github.com/evanberkowitz/umd-phys-373}
+
+
+
+\newcommand{\secref}[1]{Sec.~\ref{sec:#1}}
+\newcommand{\Secref}[1]{Section~\ref{sec:#1}}
+\newcommand{\appref}[1]{App.~\ref{sec:#1}}
+\newcommand{\Appref}[1]{Appendix~\ref{sec:#1}}
+\newcommand{\tabref}[1]{Tab.~\ref{tab:#1}\xspace}
+\newcommand{\Tabref}[1]{Table~\ref{tab:#1}\xspace}
+\newcommand{\figref}[1]{Fig.~\ref{fig:#1}\xspace}
+\newcommand{\Figref}[1]{Figure~\ref{fig:#1}\xspace}
+\newcommand{\Eqref}[1]{Equation~\ref{eq:#1}\xspace}
+\def\Ref#1{Ref.~\cite{#1}} \newcommand{\Reference}[1]{Reference~\cite{#1}}
+\newcommand{\Refs}[1]{Refs.~\cite{#1}}
+\newcommand{\References}[1]{References~\cite{#1}}
+
+
+
+\newcommand{\issue}[1]{\href{\repoURL/issues/#1}{Issue #1}}
+\newcommand{\pullrequest}[1]{\href{\repoURL/pulls/#1}{Pull Request #1}}
+
+
+
+\newcommand{\arxiv}[1]{\href{http://www.arxiv.org/abs/#1}{arXiv:#1}}
+
+
+
+\newcommand{\goesto}{\ensuremath{\rightarrow}}
+\newcommand{\infinity}{\infty}
+\newcommand{\Integers}{\mathbb{Z}\xspace}
+\newcommand{\integers}{\Integers}
+\newcommand{\one}{\ensuremath{\mathbbm{1}}}
+\newcommand{\order}[1]{\ensuremath{\mathcal{O}\left(#1\right)}\xspace}
+\newcommand{\Rationals}{\mathbb{Q}\xspace}
+\newcommand{\Reals}{\mathbb{R}\xspace}
+\newcommand{\Complexes}{\mathbb{C}\xspace}
+\newcommand{\union}{\ensuremath{\cup}}
+\DeclareMathOperator{\erf}{erf}
+\newcommand{\laplace}[1]{\ensuremath{\mathcal{L}\left\{#1\right\}}\xspace}
+\newcommand{\inverselaplace}[1]{\ensuremath{\mathcal{L}\inverse\left\{#1\right\}}\xspace}
+
+
+\DeclareMathOperator{\odd}{odd}
+\DeclareMathOperator{\even}{even}
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\imag}{Im}
+
+
+
+
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+
+
+
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+
+
+
+\newcommand{\oneover}[1]{\ensuremath{\frac{1}{#1}}}                             \newcommand{\inverse}{\ensuremath{^{-1}}}                                       \providecommand{\half}{\ensuremath{\frac{1}{2}} }                               \renewcommand{\half}{\ensuremath{\frac{1}{2}} }                                 \newcommand{\quarter}{\ensuremath{\frac{1}{4}} }                                
+
+
+
+\newcommand{\dd}[3][1]{
+    \ifthenelse { \equal {#1} {1} }
+                {\ensuremath{\frac{d#2}{d#3}}}
+                {\ensuremath{\frac{d^{#1}#2}{d#3^{#1}}}}
+    }
+
+\newcommand{\pp}[3][1]{
+    \ifthenelse { \equal {#1} {1} }
+                {\ensuremath{\frac{\partial#2}{\partial#3}}}
+                {\ensuremath{\frac{\partial^{#1}#2}{\partial#3^{#1}}}}
+    }
+
+\newcommand{\ppp}[3]{\ensuremath{\frac{\partial^2#1}{\partial#2\,\partial#3}}}
+
+\newcommand{\grad}{\ensuremath{\nabla}\xspace}
+\newcommand{\laplacian}{\ensuremath{\grad^2}\xspace}
+
+\providecommand{\id}{}
+\renewcommand{\id}[1]{\ensuremath{\; \mathrm{d}#1}}
+
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}\xspace}
+\newcommand{\magnitude}{\abs}
+\newcommand{\average}[1]{\ensuremath{\left\langle #1 \right\rangle}\xspace}
+
+\newcommand{\ket}[1]{\ensuremath{\left|\;#1\;\right\rangle}}
+\newcommand{\bra}[1]{\ensuremath{\left\langle\;#1\;\right|}}
+\newcommand{\bracket}[2]{\ensuremath{\left\langle\;#1\;\middle|\;#2\;\right\rangle}}
+\let\braket\bracket
+\newcommand{\operator}[3]{\ensuremath{\left|\;#1\;\middle\rangle\; #2\; \middle\langle\;#3\;\right|}}
+
+
+
+\newcommand{\identity}{\ensuremath{\mathds{1}}}
+\newcommand{\diag}[1]{\ensuremath{\text{diag}\left(#1\right)}}
+\newcommand{\tr}[1]{\ensuremath{\text{tr}\left[#1\right]}}
+\newcommand{\transpose}{\ensuremath{{}^{\top}}}
+\newcommand{\adjoint}{\ensuremath{{}^{\dagger}}}
+
+
+
+
+
+
+
+
+\newcommand{\bash}{\texttt{bash}\xspace}
+\newcommand{\git}{\texttt{git}\xspace}
+\newcommand{\make}{\texttt{make}\xspace}
+\newcommand{\mpi}{\texttt{MPI}\xspace}
+\newcommand{\python}{\texttt{python}\xspace}
+
+\let\builtinLaTeX\LaTeX
+\def\LaTeX{\builtinLaTeX\xspace}
+ \usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{slashed}
+\usepackage[
+    colorlinks=true,
+    allcolors=blue
+]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,decorations.pathmorphing,decorations.markings}
+\usepackage{pgfplots}
+
+
+
+
+\providecommand{\repositoryInformationSetup}{} \repositoryInformationSetup
+
+
+
+
+
+
+
+
+\begin{document}
+
+\title{Homework 11 --- PHYS373 2021}
+
+\author{Dr.~Evan Berkowitz	\\
+\href{mailto:evanb@umd.edu}{evanb@umd.edu}}
+
+\date{Due May 6, 2021}
+
+\maketitle
+
+\begin{questions}
+	\section*{Linear Spaces}
+	\question Suppose we have an inner product space, and two vectors in that space \ket{u} and \ket{v}.
+
+\begin{parts}
+\part Suppose $\braket{u}{v}=0$, and let $\ket{u+v} = \ket{u} + \ket{v}$.
+	Prove that $\braket{u+v}{u+v} = \braket{u}{u} + \braket{v}{v}$.  This is the \emph{Pythagorean theorem}.
+	\begin{solution}\end{solution}
+
+\part Let the vector $\ket{\mu} = \ket{u} - \mu \ket{v}$ for two generic vectors \ket{u} and \ket{v} (not necessarily orthogonal) and any complex number $\mu$.
+	Since \braket{\mu}{\mu} is the inner product of a vector with itself, it is at least 0; $\braket{\mu}{\mu}\geq 0$.
+	Show that this implies $\braket{u}{u} - \mu \braket{u}{v} - \mu^* \braket{v}{u} + \abs{\mu}^2 \braket{v}{v} \geq 0$ for any $\mu$ at all whatsoever.
+	\begin{solution}\end{solution}
+
+\part By a tricky choice of $\mu = \braket{v}{u} / \braket{v}{v}$ (which is \emph{some} number as long as $\braket{v}{v}\neq 0 $!) show that one finds $0 \leq \abs{\braket{u}{v}}^2 \leq \braket{u}{u} \braket{v}{v}$.  This is called \emph{Schwarz's Inequality}.
+	\begin{solution}\end{solution}
+	If you want to think in terms of familiar geometric language, $\abs{\braket{u}{v}}^2$ is like the (magnitude) square of the dot product of two vectors.  That's got to be at least zero.  Since $\vec{a}\cdot\vec{b} = a b \cos\theta$ where $\theta$ is the angle between them, the dot product is at most $ab$ (when $\theta=0$---the vectors are parallel).
+
+	\part The zero vector is the vector whose length is zero.  It gets a lot of special treatment.  For example, a lot of times we don't write it as a ket, we just write 0, so $\ket{u} = \ket{u} + 0$.  Rarely, you might find texts that write just \ket{} (with nothing inside), `the null ket'.\footnote{But!  We \emph{do not} usually write the zero vector as \ket{0}.  In quantum mechanics, for example, we often write \ket{0} for the ground state---which is a state just like any other generic state, in that its norm isn't zero}  When we say its length is zero we mean $\braket{}{}=0$.
+
+	Use the inequality proved in part (c) to show that the inner product of the zero vector with \emph{any} vector is zero.
+	Note that you cannot let \ket{v} be the null ket because \braket{v}{v} is in the denominator for $\mu$---you've got to let \ket{u} be the null ket.
+	\begin{solution}\end{solution}
+
+	This is what \emph{justifies} writing the null ket as just 0 (without the \ket{\text{funny brackets}}) in the first place!  Otherwise, we'd be adding a vector to a number which\ldots?
+\end{parts}
+ 	\question Consider a four-dimensional inner product space with orthonormal kets $\ket{1}$, \ket{2}, \ket{3}, and \ket{4} which satisfy
+\begin{equation}
+	\braket{m}{n} = \delta_{mn}	\qquad (\text{that's 16 equations, one for each combination of } m,n \in \{1,2,3,4\})
+\end{equation}
+Suppose we have two vectors $\ket{f}$ and $\ket{g}$ given in that basis in terms of their (complex) components $f_i$ and $g_i$,
+\begin{align}
+	\ket{f} &= \sum_{i=1}^{4} f_i \ket{i}
+	&
+	\ket{g} &= \sum_{i=1}^{4} g_i \ket{i}
+\end{align}
+
+\begin{parts}
+	\part Show that $\braket{f}{g} = \sum_{i=1}^{4} f_i^* g_i$.
+	\begin{solution}\end{solution}
+
+	\part Suppose we restricted ourselves to the space of vectors where the third and fourth components were always equal.
+	In other words, vectors of the form $\ket{g} = g_1 \ket{1} + g_2 \ket{2} + g_3 (\ket{3}+\ket{4})$.
+	This subspace is 3-dimensional, in the sense that you've only got to specify 3 numbers (components) to determine any vector in it.
+	However, they don't have the `usual' inner product!
+	Show that for these vectors the inner product can be written $\braket{f}{g} = \sum_{i=1}^4 f_i^* g_i = \sum_{i=1}^{3} f_i^* g_i w_i$ where $w_1=1$, $w_2=1$, and $w_3=2$.
+	\begin{solution}\end{solution}
+
+	\part The general construction $\braket{f}{g} = \sum_i f_i^* g_i w_i$ is called a \emph{weighted} inner product; $w_i$ is called the \emph{weight} of component $i$.  Show that if all the weights are real and positive, this inner product satisfies 
+	\begin{enumerate}
+		\item $\braket{f}{g} =  \braket{g}{f}^*$ (complex conjugation property)
+		\item $\braket{f}{f} \geq 0$ (positive-semidefiniteness)
+		\item $\braket{f}{f}=0$ if and only if all the components of $f$ are 0 (uniqueness of the zero vector).
+		\item $\braket{f}{g+h} = \braket{f}{g} + \braket{f}{h}$ (linearity; \ket{g+h} means \ket{g}+\ket{h})
+		\item $\braket{f}{\alpha g} = \alpha \braket{f}{g}$ (linearity; $\ket{\alpha g}$ means $\alpha \ket{g}$)
+	\end{enumerate}
+	(Notice that linearity in the bra, $\braket{f+g}{h} = \braket{f}{h} + \braket{g}{h}$ and $\braket{\alpha f}{g} = \alpha^* \braket{f}{g}$ follow from combining the complex conjugation property with the linearity properties you showed for the ket.)
+	\begin{solution}\end{solution}
+
+	\part Which property/properties in part (c) wouldn't be true if the weights $w$ were allowed to be complex?
+	\begin{solution}\end{solution}
+
+	\part Which property/properties in part (c) wouldn't be true if the weights $w$ were allowed to be negative?
+	\begin{solution}\end{solution}
+
+	\part Which property/properties in part (c) wouldn't be true if the weights were all real but some of the weights were allowed to be zero?
+	\begin{solution}\end{solution}
+
+	\part You don't have to write anything, but convince yourself that for functions, the \emph{weighted inner product} $\braket{f}{g} = \int f^*(x) g(x) \; w(x) \id{x}$ for some finite or infinite interval of $x$ has all the nice part-(c)-properties as long as the \emph{weight function} $w(x)$ is a real, positive function.
+\end{parts}
+
+\question Suppose you have a complete orthogonal (but not ortho\emph{normal}) basis of kets $\{\ket{i}\}$, $\braket{i}{j} = n_i^2 \delta_{ij}$ for all $i$ and $j$, where $n_i$ is the \emph{normalization} if $\ket{i}$; $n_i$ is a positive, real number.  Since it's a complete basis we can write any vector $\ket{f} = \sum_{i} f_i \ket{i}$ in that basis.
+\begin{parts}
+	\part Show that $f_j = \braket{j}{f} / \braket{j}{j}$.
+	\begin{solution}\end{solution}
+
+	\part Suppose you have another vector $\ket{g}$ (defined like \ket{f}, but with components $g_i$ in the basis we're discussing).  Show that $\braket{f}{g} = \sum_i f_i^* g_i w_i$ where $w_i = n_i^2$.  \emph{In other words, a weighted inner product comes up in a basis where the  kets aren't necessarily normalized to 1.}
+	\begin{solution}\end{solution}
+\end{parts}
+ 
+	\clearpage
+	\section*{Operators}
+	\question In HW07Q9 and HW09Q1 we discussed the \emph{translation operator}.  We said $T(\Delta) f(x) = f(x-\Delta)$.
+Suppose that $\ket{f} = \int_{-\infty}^{+\infty} \id{x} f(x) \ket{x}$.
+Consider the operator
+\begin{equation}
+	T(\Delta) = \int_{-\infty}^{+\infty} \id{x} \operator{x+\Delta}{}{x}
+\end{equation}
+which replaces any \ket{x} with the ket $\ket{x+\Delta}$ instead.
+Show that when we apply the operator $T(\Delta)$ to \ket{f} we get
+\begin{equation}
+	T(\Delta)\ket{f} = \int_{-\infty}^{+\infty} f(x-\Delta) \ket{x}.
+\end{equation}
+
+\begin{solution}\end{solution}
+
+\question The differentiation operator $D$ is the\footnote{You could take a symmetrical definition $\lim_{\epsilon\goesto0}[T(-\epsilon) - T(+\epsilon)]/2\epsilon$ or some other sensible definition instead; they all agree in the $\epsilon\goesto0$ limit.} \emph{limit},
+\begin{equation}
+	D = \lim_{\epsilon\goesto0}\frac{T(0) - T(\epsilon)}{\epsilon};
+\end{equation}
+where what we \emph{mean} is: first apply the operator $T(0)$ and $T(\epsilon)$, then take the limit $\epsilon\goesto0$.
+Show that when applied to $\ket{f} = \int\id{x} f(x) \ket{x}$,
+\begin{equation}
+	D\ket{f} = \int \id{x} f'(x) \ket{x}
+\end{equation}
+which we can call $\ket{f'}$.
+(Use the result from the previous question!; you can assume the limit commutes with any integration and the necessary limits exist)
+\begin{solution}\end{solution}
+ 	\question Consider the space of complex-valued functions on $x=(-\infty,+\infty)$.
+The \emph{Laplacian} $L$ is a linear operator given by
+\begin{equation}
+	L = D^2
+\end{equation}
+where $D$ is the differentiation operator from the previous question. ($D^2$ means: first apply $D$ and then apply $D$ again.)
+\begin{parts}
+	\part Suppose we have a vector $\ket{f} = \int \id{x} f(x) \ket{x}$. 
+Show that $L\ket{f} = \ket{f''} = \int \id{x} f''(x) \ket{x}$.
+	(\emph{Use the result from the previous problem!})
+	\begin{solution}\end{solution}
+
+\part Recall that the \emph{Fourier basis} is given by the vectors
+\begin{align}
+	\ket{k} &= \int \id{x}\; e^{i k x} \ket{x}
+	&
+	\braket{p}{k} &= 2\pi \delta(p-k)
+\end{align}
+for all $k\in\Reals$.  Show that $L\ket{k} = -k^2 \ket{k}$. (Hint: use the result from the previous part!)
+(In other words, the \emph{Fourier basis} is made up of eigenstates of the Laplacian; the eigenvalue corresponding to \ket{k} is $-k^2$.  Since all the eigenvalues are real, the Laplacian is a Hermitian operator.)
+	\begin{solution}\end{solution}
+
+\part Check that in the Fourier basis we may write
+\begin{equation}
+	L = \int \frac{\id{k}}{2\pi} \operator{k}{(-k^2)}{k}
+\end{equation}
+by applying this operator to $\ket{p}$ (a vector in the Fourier basis) to get $L\ket{p} = -p^2\ket{p}$.  (Hint: it will be easier to stay in the Fourier basis and use the orthogonality relation $\braket{k}{p} = 2\pi \delta(p-k)$.)
+	\begin{solution}\end{solution}
+\end{parts}
+ 
+	\clearpage
+	\section*{Prep Work for Spherical Coordinates}
+	\question Consider 3-dimensional space with coordinates $x$, $y$, and $z$.  We can describe any point by its 3 cartesian coordinates $(x, y, z)$, but can also describe any point by its \emph{spherical coordinates} $(r, \theta, \phi)$, as shown in the figure below.
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{figure/spherical-coordinates}
+\end{center}
+(Another figure is available in Boas 5.4 by equation 4.5.)
+While $x$, $y$, and $z$ can take any value $(-\infty,+\infty)$, and each point has only one set of coordinates in that basis, we have to be more careful with the $r$, $\theta$, and $\phi$ coorinates.  First of all, $\phi$ is $2\pi$-periodic---if you increase $\phi$ by $2\pi$ you get back to the same point.  So $\phi$ can go from 0 to $2\pi$ (or from $-\pi$ to $+\pi$, or any other convenient choice---functions are always $2\pi$-periodic in $\phi$).
+
+Next, $\theta$ can go from 0 to $\pi$; you can describe a point which has a $\theta$ that's more than $\pi$ by increasing $\phi$ by $\pi$ and using a $\theta$ that's less than $\pi$.  In other words, a point $(r, \theta > \pi, \phi)$ can also be described by $(r, 2\pi-\theta, \phi+\pi)$.
+Finally, $r$ can go from 0 to $\infty$; a point with coordinates $(-r,\theta,\phi)$ can be described by $(+r, \pi-\theta, \phi+\pi)$ instead.
+
+(You can either do part a using geometry and then part b via algebra, or part b using geometry and then part a via algebra, whichever you find easier!  Maybe do both from geometry.  Up to you!)
+\begin{parts}
+	\part Use the normal rules of euclidean geometry to show
+	\begin{align}
+		r^2 &= x^2+y^2+z^2
+		&
+		\tan \phi &= \frac{y}{x}
+		&
+		\cos \theta &= \frac{z}{r}
+	\end{align}
+	\begin{solution}\end{solution}
+
+	\part Show that these relationships may also be solved for $x$, $y$, and $z$ to give
+	\begin{align}
+		x	&=	r \sin \theta \cos \phi
+		&
+		y	&=	r \sin \theta \sin \phi
+		&
+		z	&=	r \cos \theta
+		\label{eq:cartesian coordinates in terms of spherical coordinates}
+	\end{align}
+	\begin{solution}\end{solution}
+
+	\part When we compute integrals over space using cartesian coordinates it's easy; $\int \id{V} = \int \id{x} \id{y} \id{z}$.  But if we integrate over space it's not just $\int \id{V} \neq \int \id{r} \id{\theta} \id{\phi}$.  For one thing, the units are wrong!  $\id{V}$ is supposed to have dimensions of length${}^3$ but since $\theta$ and $\phi$ are angles they don't have dimension (or, if you like, their dimensions are radians; certainly not length, anyway!).  So, what went wrong?  We need to include the \emph{Jacobian}.
+
+	The Jacobian is given by
+	\begin{equation}
+		J = \det \begin{pmatrix}
+			\partial_r x	&	\partial_r y	& \partial_r z	\\
+			\partial_\theta x	&	\partial_\theta y	& \partial_\theta z	\\
+			\partial_\phi x	&	\partial_\phi y	& \partial_\phi z	
+		\end{pmatrix}
+	\end{equation}
+
+	Show that $J = r^2 \sin\theta$. (See Boas 5.4 eq (4.14) for help.)
+	\begin{solution}\end{solution}
+	Therefore, if we integrate some function $f$ over some region of space $\int \id{V} f$ we can either day the integral is $\int \id{x}\id{y}\id{z} f(x,y,z)$ or $\int r^2 \id{r} \sin\theta \id{\theta} \id{\phi} f(r,\theta,\phi)$ over the same region of space (but written in different coordinates).  We usually say $f(r,\theta,\phi)$ doesn't mean plug in $r$ where you see $x$, $\theta$ for $y$, and $\phi$ for $z$---instead it means you should plug in $x$, $y$, and $z$ in terms of the $r$, $\theta$, and $\phi$ variables, given by \eqref{eq:cartesian coordinates in terms of spherical coordinates}.
+
+	\part Sometimes it's convenient to think in terms of $u = \cos\theta$.  What is $\id{u}$ in terms of $\theta$ and $\id{\theta}$?  If $\theta$ goes from 0 to $\pi$, what values does $u$ take?  Rewrite $\int_{0}^{\pi} \id{\theta} \sin\theta f(\cos\theta)$ as an integral over $u$.
+	\begin{solution}\end{solution}
+\end{parts}
+ 
+	\clearpage
+	\section*{As Always}
+	\question How long did this problem set take you?
+	
+	\section*{Optional Practice}
+	\question Boas 3.10.7 and 3.10.8
+	\question Boas 3.10.10 (the triangle inequality; the notation $||f||$ means $\sqrt{\braket{f}{f}}$, see 3.10 eqn 10.2.)
+	\question Find the Jacobian for \emph{cylindrical coordinates}, $(r,\phi,z) = (\sqrt{x^2+y^2}, \arctan y/x, z)$.
+\end{questions}
+
+\end{document}
