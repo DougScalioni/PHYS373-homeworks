@@ -351,7 +351,15 @@
 		T(\Delta)\ket{f} = \int_{-\infty}^{+\infty} f(x-\Delta) \ket{x}.
 	\end{equation}
 
-	\begin{solution}\end{solution}
+	\begin{solution}
+		$$T(\Delta)\ket{f} =   \int_{-\infty}^{+\infty} \id{u} \operator{u+\Delta}{}{u}  \int_{-\infty}^{+\infty} \id{y} f(y) \ket{y}$$
+		$$ = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \id{u} \id{y} f(y)  \ket{u+\Delta}   \braket{u}{y}$$
+		Substituting $x = u + \Delta$, $\id{u} = \id{x}$
+		$$ = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \id{x} \id{y} f(y)  \ket{x}   \braket{x-\Delta}{y}$$
+		$$ = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \id{x} \id{y} f(y)  \ket{x}   \delta(x-\Delta-y)$$
+		$$ = \int_{-\infty}^{+\infty} \id{x} f(x-\Delta)  \ket{x} $$
+
+	\end{solution}
 
 	\question The differentiation operator $D$ is the\footnote{You could take a symmetrical definition $\lim_{\epsilon\goesto0}[T(-\epsilon) - T(+\epsilon)]/2\epsilon$ or some other sensible definition instead; they all agree in the $\epsilon\goesto0$ limit.} \emph{limit},
 	\begin{equation}
@@ -364,7 +372,17 @@
 	\end{equation}
 	which we can call $\ket{f'}$.
 	(Use the result from the previous question!; you can assume the limit commutes with any integration and the necessary limits exist)
-	\begin{solution}\end{solution}
+	\begin{solution}
+
+		$$ D\ket{f} = \lim_{\epsilon\goesto0}\frac{T(0) - T(\epsilon)}{\epsilon} \ket{f}$$
+		$$ = \lim_{\epsilon\goesto0} \frac{1}{\epsilon} \left[ \int\id{x} f(x) \ket{x} - \int\id{x} f(x-\epsilon) \ket{x}\right] $$
+		$$ = \lim_{\epsilon\goesto0} \frac{1}{\epsilon} \left[ \int\id{x} (f(x)- f(x-\epsilon)) \ket{x} \right] $$
+		As long as $f$ is dominated, the limit commutes with the integral:
+		$$ =  \int\id{x} \left[ \lim_{\epsilon\goesto0} \frac{f(x)- f(x-\epsilon)}{\epsilon} \right] \ket{x} $$
+		$$ =  \int\id{x} f'(x) \ket{x} $$
+
+
+	\end{solution}
 	\question Consider the space of complex-valued functions on $x=(-\infty,+\infty)$.
 	The \emph{Laplacian} $L$ is a linear operator given by
 	\begin{equation}
@@ -375,7 +393,11 @@
 		\part Suppose we have a vector $\ket{f} = \int \id{x} f(x) \ket{x}$.
 		Show that $L\ket{f} = \ket{f''} = \int \id{x} f''(x) \ket{x}$.
 		(\emph{Use the result from the previous problem!})
-		\begin{solution}\end{solution}
+		\begin{solution}
+			It suffices to use the result from the previous question twice:
+			$$ D\ket{f} = \int\id{x} f'(x) \ket{x} = \ket{f'}$$
+			$$ L\ket{f} = D (D\ket{f}) = D (\ket{f'}) = \int\id{x} f''(x) \ket{x} $$
+		\end{solution}
 
 		\part Recall that the \emph{Fourier basis} is given by the vectors
 		\begin{align}
@@ -385,14 +407,25 @@
 		\end{align}
 		for all $k\in\Reals$.  Show that $L\ket{k} = -k^2 \ket{k}$. (Hint: use the result from the previous part!)
 		(In other words, the \emph{Fourier basis} is made up of eigenstates of the Laplacian; the eigenvalue corresponding to \ket{k} is $-k^2$.  Since all the eigenvalues are real, the Laplacian is a Hermitian operator.)
-		\begin{solution}\end{solution}
+		\begin{solution}
+			Using the previous result,
+			$$ L\ket{k} = \int \id{x}\; \frac{d}{dx}e^{i k x} \ket{x} $$
+			$$ L\ket{k} = \int \id{x}\; (ik)^2 e^{i k x} \ket{x} $$
+			$$ L\ket{k} = -k^2 \int \id{x}\;  e^{i k x} \ket{x} = -k^2 \ket{k}$$
+		\end{solution}
 
 		\part Check that in the Fourier basis we may write
 		\begin{equation}
 			L = \int \frac{\id{k}}{2\pi} \operator{k}{(-k^2)}{k}
 		\end{equation}
 		by applying this operator to $\ket{p}$ (a vector in the Fourier basis) to get $L\ket{p} = -p^2\ket{p}$.  (Hint: it will be easier to stay in the Fourier basis and use the orthogonality relation $\braket{k}{p} = 2\pi \delta(p-k)$.)
-		\begin{solution}\end{solution}
+		\begin{solution}
+			$$ \int \frac{\id{k}}{2\pi} \operator{k}{(-k^2)}{k} \ket{p}$$
+			$$ = -k^2 \int \frac{\id{k}}{2\pi} \ket{k} \braket{k}{p}$$
+			$$ = -k^2 \int \frac{\id{k}}{2\pi} \ket{k} 2 \pi \delta (p-k)$$
+			$$ = -k^2 \int \id{k} \ket{k} \delta (p-k)$$
+			$$ = -k^2\ket{p} = L\ket{p}$$
+		\end{solution}
 	\end{parts}
 
 	\clearpage
@@ -417,7 +450,19 @@
 			            &
 			\cos \theta & = \frac{z}{r}
 		\end{align}
-		\begin{solution}\end{solution}
+		\begin{solution}
+			Using (b),
+			$$ x^2 + y^2 + z^2 = r^2 \sin^2\theta \cos^2\phi + r^2 \sin^2 \theta \sin^2 \phi + r^2 \cos^2\theta$$
+			$$ x^2 + y^2 + z^2 = r^2 \left[\sin^2\theta \cos^2\phi + \sin^2 \theta \sin^2 \phi + \cos^2\theta\right] $$
+			$$ x^2 + y^2 + z^2 = r^2 \left[\sin^2\theta (\cos^2\phi + \sin^2 \phi) + \cos^2\theta\right] $$
+			$$ x^2 + y^2 + z^2 = r^2 \left[\sin^2\theta (1) + \cos^2\theta\right] $$
+			$$ x^2 + y^2 + z^2 = r^2 \left[\sin^2\theta + \cos^2\theta\right] $$
+			$$ x^2 + y^2 + z^2 = r^2 \left[ 1 \right] = r^2 $$
+
+			$$ \frac{y}{x} = \frac{r\sin\theta\sin\phi}{r\sin\theta\cos\phi} = \frac{\sin\phi}{\cos\phi} = \tan \phi$$
+
+			$$ \frac{z}{r} = \frac{r\cos\theta}{r} = \cos\theta $$
+		\end{solution}
 
 		\part Show that these relationships may also be solved for $x$, $y$, and $z$ to give
 		\begin{align}
@@ -428,7 +473,13 @@
 			z & =	r \cos \theta
 			\label{eq:cartesian coordinates in terms of spherical coordinates}
 		\end{align}
-		\begin{solution}\end{solution}
+		\begin{solution}
+			x) To obtain $x$, we get the vector $v$ of magnitude $r$, project it onto the plane $XY$, (which adds the factor of $\cos(\pi/2 - \theta) = \sin\theta$), then project it onto $X$, by adding $\cos \phi$. Then, $x = r\sin\theta\cos\phi$.
+
+			y) To obtain $y$, we project $v$ onto $XY$, multiplying it by  $\cos(\pi/2 - \theta) = \sin\theta$) then project it onto $Y$, multiplying it by $\cos(\pi/2 - \phi) = \sin \phi$. $y = r \sin\theta\sin\phi$.
+
+			z) Since the triangle with $\theta$ and $\phi$ are on a plane that passes through the axis $Z$, it suffices to project it onto $Z$ by multiplying by $\cos \theta$. $z=r\cos\theta$.
+		\end{solution}
 
 		\part When we compute integrals over space using cartesian coordinates it's easy; $\int \id{V} = \int \id{x} \id{y} \id{z}$.  But if we integrate over space it's not just $\int \id{V} \neq \int \id{r} \id{\theta} \id{\phi}$.  For one thing, the units are wrong!  $\id{V}$ is supposed to have dimensions of length${}^3$ but since $\theta$ and $\phi$ are angles they don't have dimension (or, if you like, their dimensions are radians; certainly not length, anyway!).  So, what went wrong?  We need to include the \emph{Jacobian}.
 
@@ -442,16 +493,39 @@
 		\end{equation}
 
 		Show that $J = r^2 \sin\theta$. (See Boas 5.4 eq (4.14) for help.)
-		\begin{solution}\end{solution}
+		\begin{solution}
+			\begin{equation}
+				J = \det \begin{pmatrix}
+					\sin\theta\cos\phi   & \sin\theta\sin\phi  & \cos\theta   \\
+					r\cos\theta \cos\phi & r\cos\theta\sin\phi & -r\sin\theta \\
+					-r\sin\theta\sin\phi & r\sin\theta\cos\phi & 0
+				\end{pmatrix}
+			\end{equation}
+			$$ = 0 + \sin\theta\sin\phi(-r\sin\theta) (-r\sin\theta\sin\phi) + \cos\theta r\cos\theta \cos\phi r\sin\theta\cos\phi $$
+			$$ - (-r\sin\theta\sin\phi)r\cos\theta\sin\phi\cos\theta - r\sin\theta\cos\phi (-r\sin\theta) \sin\theta\cos\phi - 0...$$
+			$$ = 0 + r^2 \sin^3\theta\sin^2\phi + r^2 \cos^2\theta\sin\theta\cos^2\phi + r^2 \cos^2 \theta \sin\theta \sin^2\phi +r^2 \sin^3\theta \cos^2\phi -0$$
+			$$ = r^2 (\sin^3\theta\sin^2\phi + \cos^2\theta\sin\theta\cos^2\phi + \cos^2 \theta \sin\theta \sin^2\phi +\sin^3\theta \cos^2\phi)$$
+			$$ = r^2 \sin\theta(\sin^2\theta\sin^2\phi + \cos^2\theta\cos^2\phi + \cos^2 \theta \sin^2\phi +\sin^2\theta \cos^2\phi)$$
+			$$ = r^2 \sin\theta(\sin^2\theta\sin^2\phi + \sin^2\theta \cos^2\phi+ \cos^2\theta\cos^2\phi + \cos^2 \theta \sin^2\phi) $$
+			$$ = r^2 \sin\theta(\sin^2\theta (\sin^2\phi \cos^2\phi)+ \cos^2\theta (\cos^2\phi + \sin^2\phi)) $$
+			$$ = r^2 \sin\theta(\sin^2\theta+ \cos^2\theta) $$
+			$$ = r^2 \sin\theta $$
+
+		\end{solution}
 		Therefore, if we integrate some function $f$ over some region of space $\int \id{V} f$ we can either day the integral is $\int \id{x}\id{y}\id{z} f(x,y,z)$ or $\int r^2 \id{r} \sin\theta \id{\theta} \id{\phi} f(r,\theta,\phi)$ over the same region of space (but written in different coordinates).  We usually say $f(r,\theta,\phi)$ doesn't mean plug in $r$ where you see $x$, $\theta$ for $y$, and $\phi$ for $z$---instead it means you should plug in $x$, $y$, and $z$ in terms of the $r$, $\theta$, and $\phi$ variables, given by \eqref{eq:cartesian coordinates in terms of spherical coordinates}.
 
 		\part Sometimes it's convenient to think in terms of $u = \cos\theta$.  What is $\id{u}$ in terms of $\theta$ and $\id{\theta}$?  If $\theta$ goes from 0 to $\pi$, what values does $u$ take?  Rewrite $\int_{0}^{\pi} \id{\theta} \sin\theta f(\cos\theta)$ as an integral over $u$.
-		\begin{solution}\end{solution}
+		\begin{solution} 
+			$\id{u} = -\sin\theta \id\theta$ So
+			$$ = \int_{0}^{\pi} (\id{\theta} \sin\theta) f(\cos\theta) $$
+			$$ = \int_{0}^{\pi} (-\id{u}) f(u) $$
+			$$ = -\int_{0}^{\pi} \id{u} f(u) $$
+		\end{solution}
 	\end{parts}
 
 	\clearpage
 	\section*{As Always}
-	\question How long did this problem set take you?
+	\question How long did this problem set take you? 6h
 
 	\section*{Optional Practice}
 	\question Boas 3.10.7 and 3.10.8
