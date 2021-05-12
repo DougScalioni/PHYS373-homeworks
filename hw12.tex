@@ -176,7 +176,7 @@
 	\question Boas 13.1.2a
 
 	\begin{solution}
-		"Show that the expression $u = \sin (x - vt)$ describing a sinusoidal wave (see Chapter 7, Figure 2.3), satisfies the wave equation (1.4)."
+		``Show that the expression $u = \sin (x - vt)$ describing a sinusoidal wave (see Chapter 7, Figure 2.3), satisfies the wave equation (1.4)."
 		Equation 1.4 is $$\laplacian u = \frac{1}{v^2} \frac{\partial^2u}{\partial t^2}$$
 
 		$$ \laplacian \sin(x-vt) = -\sin(x-vt)$$
@@ -185,7 +185,7 @@
 		Thus, indeed:
 		$$ \laplacian \sin(x-vt) = \frac{1}{v^2} \frac{\partial^2}{\partial t^2} \sin(x-vt) $$
 
-		"Show that, in general, $u = f (x - vt)$ and $u = f (x + vt)$ satisfy the wave equation, where $f$ is any
+		``Show that, in general, $u = f (x - vt)$ and $u = f (x + vt)$ satisfy the wave equation, where $f$ is any
 		function with a second derivative."
 
 		Similarly to the first part,
@@ -198,7 +198,7 @@
 	\question Boas 13.2.3
 
 	\begin{solution}
-		"Solve the semi-infinite plate problem if the bottom edge of width $\pi$ is held at
+		``Solve the semi-infinite plate problem if the bottom edge of width $\pi$ is held at
 		$T = \cos x$ and the other sides are at 0$^{\circ}$."
 
 		Let me clearly write down this problem:
@@ -206,7 +206,7 @@
 		$$ \laplacian T = \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} = 0$$
 		$$ T(0,y) = T(\pi,y) = 0 $$
 		$$ T(x,\infty) = 0$$
-		$$ T(x,0) = \cos x \textbf{ for } 0<x<\pi$$
+		$$ T(x,0) = \cos x \text{ for } 0<x<\pi$$
 
 		Suppose our solution is of the form $T(x,y) = X(x)Y(y)$, and plugging in back in the laplace equation, we have:
 		$$ Y X'' + X Y'' = 0$$
@@ -226,18 +226,18 @@
 
 		First, $ T(x,\infty) = 0$ so $c=0$.
 
-		Second, 
+		Second,
 		$$ T(0,y) = T(\pi,y) = 0 $$
 		$$ T=ade^{-ky} = (a\cos k\pi + b\sin k\pi)de^{-ky} = 0$$
 		$$ \Rightarrow ad = 0 $$
-		If $d=0$ we're left with a trivial solution ($Y=0 \Rightarrow T=0$). We assume then $d\neq 0$, so $a=0$. 
+		If $d=0$ we're left with a trivial solution ($Y=0 \Rightarrow T=0$). We assume then $d\neq 0$, so $a=0$.
 		$$ (a\cos k\pi + b\sin k\pi)de^{-ky} = b\sin k\pi de^{-ky} = 0$$
 		$$ \Rightarrow b\sin k\pi = 0$$
 		Similarly, if $b=0$ we're left with a trivial solution, so let's suppose $b\neq 0$
 		$$ \Rightarrow \sin k\pi = 0$$
 		This tells us that $k \in \integers$ and so far we have $T=b\sin kx de^{-ky}$.
 
-		Summing over all $k$ we have the general solution: 
+		Summing over all $k$ we have the general solution:
 
 		$$ T = \sum_{k} c(n) \sin kx e^{-ky} $$
 
@@ -259,11 +259,6 @@
 		Thus,
 		$$ T = \frac{4}{\pi} \sum_{\text{even n}} \frac{n}{n^2-1} e^{-ny} \sin nx   $$
 
-
-
-
-		
-
 	\end{solution}
 
 	\question Boas 13.6.3.  Notice that the frequencies $\nu_{nm}$ are the \emph{linear} frequences.  I used the \emph{angular} frequencies, and found
@@ -277,7 +272,75 @@
 	Please enjoy some YouTube videos of Chladni's figures.  I think the best one might be \href{https://www.youtube.com/watch?v=OLNFrxgMJ6E}{this one from the Royal Institution} but there's also a great one from \href{https://www.youtube.com/watch?v=dTReFclu_PU}{Sixty Symbols}; just google around!  Caution: don't blow out your ears!
 
 	\begin{solution}
-		"Separate the wave equation in two-dimensional rectangular coordinates $x, y$."
+		``Separate the wave equation in two-dimensional rectangular coordinates $x, y$."
+		The wave equation:
+		$$ \laplacian z = \frac{1}{v^2} \frac{\partial^2 z}{\partial t^2}$$
+		Suppose $z(x,y,t) = X(x)Y(y)T(t)$. The wave equation becomes:
+
+		$$ \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} \right) XYT = \frac{1}{v^2} \frac{\partial^2 }{\partial t^2} XYT$$
+
+		$$ YT X'' + XT Y'' = \frac{1}{v^2} XY T''$$
+		Divinding both sides by $XYT$,
+		$$ \frac{X''}{X} + \frac{Y''}{Y} = \frac{1}{v^2} \frac{T''}{T}$$
+		Each side must be a constant, namely $-k^2$:
+		$$ \frac{X''}{X} + \frac{Y''}{Y} = -k^2 = \frac{1}{v^2} \frac{T''}{T}$$
+		Solving the last one, the time equation, we get:
+		$$ T'' = -v^2 k^2 T$$
+		$$ T =  \{ \sin kvt, \cos kvt\}$$
+		Now the first one, the laplacian equation:
+		$$ \frac{X''}{X}  = -k^2 -  \frac{Y''}{Y} $$
+		Again, each side must be a constant, namely $l^2$, so:
+		$$ \frac{X''}{X} = l^2$$
+		$$ X'' = l^2 X$$
+		Which is solved by
+		$$ X =  Ae^{lx}+Be^{-lx} $$
+		Finally,
+		$$ -k^2 -  \frac{Y''}{Y} = l^2 $$
+		$$  \frac{Y''}{Y} = -(k^2+l^2) \equiv -j^2$$
+		Solved By
+		$$ Y = Ce^{jy}+De^{-jy} $$
+		\underline{Remark}: no claim was made on l (or m), regarding they being complex or not, since we can't know for sure that $Y$ and $X$ are harmonic oscillators.
+		Instead, I left them in a more general form. We have to investigate the \underline{boundary conditions} to verify that.
+
+		$$ Y(0) = Y(b) = X(0) = X(a) = 0$$
+		Starting with X:
+		$$ X(0) = Ae^{0}+Be^{0} =0 \Rightarrow A=-B$$
+		$$ X(a) = Ae^{la}-Ae^{-la} = A (e^{la}-e^{-la}) = 0 \Rightarrow e^{la} = e^{-la}$$
+		Aside from the trivial choice of $l=0$, there can only be imaginary $l = ip$. Thus, $e^{ipa} = e^{-ipa}$
+		means that $e^{ipa} \in \Reals$ and $ipa = i\pi n \text{  for  } n = 1, 2, ...$
+		So $ p = \pi n/a \text{  } n \in \natural$
+
+		Similarly with Y:
+		$$ Y(0) = Ce^{0}+De^{0} = 0 \Rightarrow C = -D$$
+		$$ Y(b) = Ce^{jb}+De^{-jb} = C(e^{jb}-e^{-jb}) = 0 \Rightarrow e^{jb} = e^{-jb}$$
+		$$ \Rightarrow j = iq$$
+		$$ iqb = i\pi m \Rightarrow q = \pi m/b \text{  } m \in \natural$$
+
+		Solving for k,
+		$$ \pi^2 \frac{m^2}{b^2} = q^2 = k^2 + l^2 = k^2 - p^2 = k^2 - \pi ^2 \frac{n^2}{a^2} $$
+		$$ k^2 = \pi^2 \frac{m^2}{b^2} + \pi ^2 \frac{n^2}{a^2} = \pi^2 \left(\frac{m^2}{b^2} + \frac{n^2}{a^2}\right)$$
+		$$ k = \pi \sqrt{\frac{m^2}{b^2} +  \frac{n^2}{a^2}}$$
+
+		From the time equation, the frequency $\omega = vk$ so $$\omega =  v\pi \sqrt{\frac{n^2}{a^2} + \frac{m^2}{b^2}}$$ and that's the answer of Boas.
+
+		Putting everything together,
+
+		$$ X = A (e^{i\pi n x/a}-e^{-i\pi n x/a}) = 2A \sin \frac{\pi n}{a} x $$
+
+		$$ Y = C(e^{i\pi m y/b}-e^{-i\pi m y/b}) = 2C \sin \frac{\pi m}{b} y $$
+
+		$$ T = E \sin \omega t + F\cos \omega t = G\cos(\omega t + \phi) $$
+
+		$z$ becomes
+		$$ z_{nm}(x,y,t) = X(x)Y(y)T(t) = K \sin \left( \frac{\pi n}{a} x \right) \sin \left( \frac{\pi m}{b} y\right)  \cos(\omega t + \phi) $$
+
+		\includegraphics[scale=0.37]{hw12-q3.png}
+
+		Second part of Boas:
+		
+		Suppose $a=b$, then $$ k = \pi \sqrt{\frac{m^2+n^2}{a^2}}$$
+
+		The same frequency can be achieved by different sums of $m^2+n^2$, such as $1^2 + 7^2 = 5^2 + 5^2$, but those different combinations of m's and n's correspond to different solutions.
 
 	\end{solution}
 
